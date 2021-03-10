@@ -35,7 +35,7 @@ def pick_color(event,x,y,flags,param):
         cnts = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         
         #storing the list of contours using mask,method,approximation method
-        #used grabing all the contour --- contours are closed enclosure of any object..
+        #used for grabing all the contour --- contours are closed enclosure of any object..
         
         cnts = imutils.grab_contours(cnts)
         x=0
@@ -47,11 +47,11 @@ def pick_color(event,x,y,flags,param):
             
             if area>2:
                 
-                cv2.drawContours(image_hsv,[c],-1,(0,255,0), 3) #drawing the contour the some colour
+                cv2.drawContours(image_hsv,[c],-1,(0,255,0), 3) #drawing the contour of some colour
                 
-                M = cv2.moments(c) #storing the moment of whole contour in M so the it can used for any particular pixels
+                M = cv2.moments(c) # Storing the moment of whole contour in M so the it can used for any particular pixels
                 
-                cx = int(M["m10"]/M["m00"])  #to find the centroid of contour we divide the moment at 10 and 01 with Moment 00 #  
+                cx = int(M["m10"]/M["m00"])  # To find the centroid of contour we divide the moment at 10 and 01 with Moment 00 
                 cy = int(M["m01"]/M["m00"])
                
                 x=x+cx
